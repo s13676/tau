@@ -3,20 +3,11 @@ package pl.klim.tau.labone.domain;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Scooter {
-    private static AtomicInteger count = new AtomicInteger(0);
     private int id;
     private String model;
     private String brand;
     private int productionYear;
     private String color;
-
-    public static AtomicInteger getCount() {
-        return count;
-    }
-
-    public static void setCount(AtomicInteger count) {
-        Scooter.count = count;
-    }
 
     public int getId() {
         return id;
@@ -58,12 +49,12 @@ public class Scooter {
         this.color = color;
     }
 
-    Scooter (String model, String brand, int productionYear, String color) {
+    public Scooter (int id, String model, String brand, int productionYear, String color) {
         this.model = model;
         this.brand = brand;
         this.productionYear = productionYear;
         this.color = color;
-        this.id = Scooter.count.getAndIncrement();
+        this.id = id;
     }
 
 
