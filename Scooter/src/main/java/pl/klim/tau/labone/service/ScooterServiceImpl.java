@@ -5,6 +5,10 @@ import pl.klim.tau.labone.domain.Scooter;
 import java.util.ArrayList;
 
 public class ScooterServiceImpl implements ScooterService {
+    public ArrayList<Scooter> getScooters() {
+        return scooters;
+    }
+
     private ArrayList<Scooter> scooters = new ArrayList<Scooter>();
 
     public void create(Scooter scooter) {

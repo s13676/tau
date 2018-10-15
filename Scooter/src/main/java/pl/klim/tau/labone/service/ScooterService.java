@@ -10,4 +10,5 @@ public interface ScooterService {
     Scooter read(int id);
     void update(Scooter scooter);
     void delete(Scooter scooter);
+    public ArrayList<Scooter> getScooters()
 }
