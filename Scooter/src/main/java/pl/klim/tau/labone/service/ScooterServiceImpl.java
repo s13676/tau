@@ -16,7 +16,18 @@ public class ScooterServiceImpl implements ScooterService {
     }
 
     public ArrayList<Scooter> readAll() {
-        return null;
+        ArrayList<Scooter> localsSooters = new ArrayList<Scooter>();
+        for (Scooter s: this.scooters) {
+            Scooter newScooter = new Scooter(
+                    s.getId(),
+                    s.getModel(),
+                    s.getBrand(),
+                    s.getProductionYear(),
+                    s.getColor()
+            );
+            localsSooters.add(newScooter);
+        }
+        return localsSooters;
     }
 
     public Scooter read(int id) throws NoSuchElementException {

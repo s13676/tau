@@ -3,6 +3,7 @@ package pl.klim.tau.labone.service;
 import org.junit.*;
 import pl.klim.tau.labone.domain.Scooter;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class ScooterServiceImplTest {
@@ -58,5 +59,22 @@ public class ScooterServiceImplTest {
         scooterService.create(scooterFour);
 
         scooterService.read(5);
+    }
+
+    @Test
+    public void testReadAllEmpty() {
+        ArrayList<Scooter> scooters = scooterService.readAll();
+        Assert.assertEquals(scooters.size(), 0);
+    }
+
+    @Test
+    public void testReadAll() {
+        Scooter scooterOne = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
+
+        scooterService.create(scooterOne);
+
+        ArrayList<Scooter> scooters = scooterService.readAll();
+
+        Assert.assertEquals(scooters.size(), 1);
     }
 }
