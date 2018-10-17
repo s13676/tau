@@ -7,8 +7,11 @@ import java.util.ArrayList;
 public class ScooterServiceImpl implements ScooterService {
     private ArrayList<Scooter> scooters = new ArrayList<Scooter>();
 
-    public void create(Scooter scooter) {
-
+    public void create(Scooter scooter) throws IllegalArgumentException {
+        for (Scooter s: scooters)
+            if (s.getId() == (scooter.getId()))
+                throw new IllegalArgumentException();
+        this.scooters.add(scooter);
     }
 
     public ArrayList<Scooter> readAll() {
