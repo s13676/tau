@@ -9,15 +9,23 @@ public class ScooterServiceImpl implements ScooterService {
     private ArrayList<Scooter> scooters = new ArrayList<Scooter>();
 
     public void create(Scooter scooter) throws IllegalArgumentException {
-        for (Scooter s: scooters)
+        for (Scooter s : scooters)
             if (s.getId() == (scooter.getId()))
                 throw new IllegalArgumentException();
-        this.scooters.add(scooter);
+
+        Scooter newScooter = new Scooter(
+                scooter.getId(),
+                scooter.getModel(),
+                scooter.getBrand(),
+                scooter.getProductionYear(),
+                scooter.getColor()
+        );
+        this.scooters.add(newScooter);
     }
 
     public ArrayList<Scooter> readAll() {
         ArrayList<Scooter> localsSooters = new ArrayList<Scooter>();
-        for (Scooter s: this.scooters) {
+        for (Scooter s : this.scooters) {
             Scooter newScooter = new Scooter(
                     s.getId(),
                     s.getModel(),
@@ -31,7 +39,7 @@ public class ScooterServiceImpl implements ScooterService {
     }
 
     public Scooter read(int id) throws NoSuchElementException {
-        for (Scooter s: scooters)
+        for (Scooter s : scooters)
             if (s.getId() == id) {
                 Scooter newScooter = new Scooter(
                         s.getId(),
@@ -42,11 +50,20 @@ public class ScooterServiceImpl implements ScooterService {
                 );
                 return newScooter;
             }
-         throw new NoSuchElementException();
+        throw new NoSuchElementException();
     }
 
     public void update(Scooter scooter) {
+        for (Scooter s : scooters)
+            if (s.getId() == (scooter.getId())) {
+                s.setProductionYear(scooter.getProductionYear());
+                s.setColor(scooter.getColor());
+                s.setBrand(scooter.getBrand());
+                s.setModel(scooter.getModel());
 
+                return;
+            }
+        throw new NoSuchElementException();
     }
 
     public void delete(Scooter scooter) {

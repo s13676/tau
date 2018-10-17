@@ -77,4 +77,33 @@ public class ScooterServiceImplTest {
 
         Assert.assertEquals(scooters.size(), 1);
     }
+
+    @Test
+    public void testUpdate() {
+        Scooter scooterOne = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
+        scooterService.create(scooterOne);
+
+        Scooter returnedScooter = scooterService.read(1);
+
+        returnedScooter.setColor("Red");
+        returnedScooter.setProductionYear(1992);
+
+        scooterService.update(returnedScooter);
+
+        Scooter returnedEditedScooter = scooterService.read(1);
+
+        Assert.assertEquals(returnedScooter.getId(), returnedEditedScooter.getId());
+
+        Assert.assertNotEquals(scooterOne.getColor(), returnedEditedScooter.getColor());
+        Assert.assertNotEquals(scooterOne.getProductionYear(), returnedEditedScooter.getProductionYear());
+
+        Assert.assertEquals(returnedScooter.getColor(), returnedEditedScooter.getColor());
+        Assert.assertEquals(returnedScooter.getProductionYear(), returnedEditedScooter.getProductionYear());
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void testObjectNotFound() {
+        Scooter scooterOne = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
+        scooterService.update(scooterOne);
+    }
 }
