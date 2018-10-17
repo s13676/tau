@@ -106,4 +106,19 @@ public class ScooterServiceImplTest {
         Scooter scooterOne = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
         scooterService.update(scooterOne);
     }
+
+    @Test
+    public void testDelete() {
+        Scooter scooterOne = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
+        scooterService.create(scooterOne);
+        Assert.assertEquals(scooterService.readAll().size(), 1);
+        scooterService.delete(scooterOne);
+        Assert.assertEquals(scooterService.readAll().size(), 0);
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void  testNotExistObject() {
+        Scooter scooterOne = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
+        scooterService.delete(scooterOne);
+    }
 }

@@ -67,6 +67,18 @@ public class ScooterServiceImpl implements ScooterService {
     }
 
     public void delete(Scooter scooter) {
+        int index = -1;
+
+        for (int i=0;i<this.scooters.size();i++) {
+            if (this.scooters.get(i).getId() == scooter.getId())
+                index = i;
+        }
+
+        if (index >= 0) {
+            this.scooters.remove(index);
+        } else {
+            throw new NoSuchElementException();
+        }
 
     }
 }
