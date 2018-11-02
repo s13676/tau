@@ -1,17 +1,30 @@
 package pl.klim.tau.labone.service;
 
 import org.junit.*;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import pl.klim.tau.labone.domain.Scooter;
+import pl.klim.tau.labtwo.domain.TimeSource;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.NoSuchElementException;
+
+import static org.mockito.Mockito.when;
 
 public class ScooterServiceImplTest {
     ScooterService scooterService;
+    Date testDate;
+
+    @Mock
+    TimeSource timeSource;
 
     @Before
     public void initialize() {
-        scooterService = new ScooterServiceImpl();
+        MockitoAnnotations.initMocks(this);
+        testDate = new Date(2018, 11, 5, 17, 15);
+        when(timeSource.getCurrentTime()).thenReturn(testDate);
+        scooterService = new ScooterServiceImpl(this.timeSource);
     }
 
     @Test
@@ -120,5 +133,13 @@ public class ScooterServiceImplTest {
     public void  testNotExistObject() {
         Scooter scooterOne = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
         scooterService.delete(scooterOne);
+    }
+
+    @Test
+    public void testReadedDate() {
+        Scooter scooter = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
+        scooterService.create(scooter);
+        Scooter returnedScooter = scooterService.read(1);
+        Assert.assertTrue(returnedScooter.getReaded().equals(this.testDate));
     }
 }

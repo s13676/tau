@@ -11,10 +11,6 @@ public class ScooterServiceImpl implements ScooterService {
 
     private TimeSource timeSource;
 
-    public ScooterServiceImpl() {
-
-    }
-
     public ScooterServiceImpl(TimeSource timeSource) {
         this.timeSource = timeSource;
     }
