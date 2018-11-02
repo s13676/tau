@@ -176,4 +176,13 @@ public class ScooterServiceImplTest {
 
         Assert.assertTrue(returnedEditedScooter.getUpdated().equals(this.testDate));
     }
+
+    @Test
+    public void testDisableReadedDate() {
+        scooterService.setDisableReadedTimeStamp(true);
+        Scooter scooter = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
+        scooterService.create(scooter);
+        Scooter returnedScooter = scooterService.read(1);
+        Assert.assertNull(returnedScooter.getReaded());
+    }
 }
