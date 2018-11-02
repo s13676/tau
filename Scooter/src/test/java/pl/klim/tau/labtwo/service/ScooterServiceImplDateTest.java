@@ -2,6 +2,7 @@ package pl.klim.tau.labtwo.service;
 
 import org.junit.*;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import pl.klim.tau.labone.domain.Scooter;
 import pl.klim.tau.labtwo.domain.TimeSource;
 import pl.klim.tau.labone.service.ScooterService;
@@ -20,6 +21,7 @@ public class ScooterServiceImplDateTest {
 
     @Before
     public void initialize() {
+        MockitoAnnotations.initMocks(this);
         testDate = new Date(2018, 11, 5, 17, 15);
         when(timeSource.getCurrentTime()).thenReturn(testDate);
         scooterService = new ScooterServiceImpl(this.timeSource);
