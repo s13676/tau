@@ -185,4 +185,13 @@ public class ScooterServiceImplTest {
         Scooter returnedScooter = scooterService.read(1);
         Assert.assertNull(returnedScooter.getReaded());
     }
+
+    @Test
+    public void testDisableAddCreatedDate() {
+        scooterService.setDisableCreatedTimeStamp(true);
+        Scooter scooter = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
+        scooterService.create(scooter);
+        Scooter returnedScooter = scooterService.read(1);
+        Assert.assertNull(returnedScooter.getCreated());
+    }
 }
