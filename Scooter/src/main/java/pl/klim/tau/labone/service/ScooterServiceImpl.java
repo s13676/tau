@@ -16,7 +16,7 @@ public class ScooterServiceImpl implements ScooterService {
     }
 
     public ScooterServiceImpl(TimeSource timeSource) {
-
+        this.timeSource = timeSource;
     }
 
     public void create(Scooter scooter) throws IllegalArgumentException {
@@ -59,6 +59,7 @@ public class ScooterServiceImpl implements ScooterService {
                         s.getProductionYear(),
                         s.getColor()
                 );
+                newScooter.setReaded(timeSource.getCurrentTime());
                 return newScooter;
             }
         throw new NoSuchElementException();
