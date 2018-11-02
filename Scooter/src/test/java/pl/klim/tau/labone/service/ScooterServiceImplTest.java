@@ -151,4 +151,12 @@ public class ScooterServiceImplTest {
 
         Assert.assertTrue(scooters.get(0).getReaded().equals(this.testDate));
     }
+
+    @Test
+    public void testAddCreatedDate() {
+        Scooter scooter = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
+        scooterService.create(scooter);
+        Scooter returnedScooter = scooterService.read(1);
+        Assert.assertTrue(returnedScooter.getCreated().equals(this.testDate));
+    }
 }
