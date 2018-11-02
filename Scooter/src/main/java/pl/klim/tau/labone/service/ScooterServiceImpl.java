@@ -40,6 +40,7 @@ public class ScooterServiceImpl implements ScooterService {
                     s.getProductionYear(),
                     s.getColor()
             );
+            newScooter.setReaded(timeSource.getCurrentTime());
             localsSooters.add(newScooter);
         }
         return localsSooters;
