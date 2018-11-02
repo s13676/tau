@@ -159,4 +159,21 @@ public class ScooterServiceImplTest {
         Scooter returnedScooter = scooterService.read(1);
         Assert.assertTrue(returnedScooter.getCreated().equals(this.testDate));
     }
+
+    @Test
+    public void testUpdatedDate() {
+        Scooter scooterOne = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
+        scooterService.create(scooterOne);
+
+        Scooter returnedScooter = scooterService.read(1);
+
+        returnedScooter.setColor("Red");
+        returnedScooter.setProductionYear(1992);
+
+        scooterService.update(returnedScooter);
+
+        Scooter returnedEditedScooter = scooterService.read(1);
+
+        Assert.assertTrue(returnedEditedScooter.getUpdated().equals(this.testDate));
+    }
 }
