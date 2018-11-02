@@ -42,6 +42,7 @@ public class ScooterServiceImpl implements ScooterService {
                     s.getColor()
             );
             newScooter.setCreated(s.getCreated());
+            newScooter.setUpdated(s.getUpdated());
 
             newScooter.setReaded(timeSource.getCurrentTime());
             localsSooters.add(newScooter);
@@ -60,6 +61,7 @@ public class ScooterServiceImpl implements ScooterService {
                         s.getColor()
                 );
                 newScooter.setCreated(s.getCreated());
+                newScooter.setUpdated(s.getUpdated());
 
                 newScooter.setReaded(timeSource.getCurrentTime());
                 return newScooter;
@@ -74,7 +76,10 @@ public class ScooterServiceImpl implements ScooterService {
                 s.setColor(scooter.getColor());
                 s.setBrand(scooter.getBrand());
                 s.setModel(scooter.getModel());
+                s.setReaded(scooter.getReaded());
+                s.setCreated(scooter.getCreated());
 
+                s.setUpdated(timeSource.getCurrentTime());
                 return;
             }
         throw new NoSuchElementException();
