@@ -27,6 +27,7 @@ public class ScooterServiceImpl implements ScooterService {
                 scooter.getProductionYear(),
                 scooter.getColor()
         );
+        newScooter.setCreated(timeSource.getCurrentTime());
         this.scooters.add(newScooter);
     }
 
@@ -40,6 +41,8 @@ public class ScooterServiceImpl implements ScooterService {
                     s.getProductionYear(),
                     s.getColor()
             );
+            newScooter.setCreated(s.getCreated());
+
             newScooter.setReaded(timeSource.getCurrentTime());
             localsSooters.add(newScooter);
         }
@@ -56,6 +59,8 @@ public class ScooterServiceImpl implements ScooterService {
                         s.getProductionYear(),
                         s.getColor()
                 );
+                newScooter.setCreated(s.getCreated());
+
                 newScooter.setReaded(timeSource.getCurrentTime());
                 return newScooter;
             }
