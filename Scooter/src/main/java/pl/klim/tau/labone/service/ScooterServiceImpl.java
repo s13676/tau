@@ -55,7 +55,8 @@ public class ScooterServiceImpl implements ScooterService {
                 scooter.getProductionYear(),
                 scooter.getColor()
         );
-        newScooter.setCreated(timeSource.getCurrentTime());
+        if (!this.disableCreatedTimeStamp)
+            newScooter.setCreated(timeSource.getCurrentTime());
         this.scooters.add(newScooter);
     }
 
