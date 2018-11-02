@@ -72,7 +72,9 @@ public class ScooterServiceImpl implements ScooterService {
             newScooter.setCreated(s.getCreated());
             newScooter.setUpdated(s.getUpdated());
 
-            newScooter.setReaded(timeSource.getCurrentTime());
+            if (!this.disableReadedTimeStamp)
+                newScooter.setReaded(timeSource.getCurrentTime());
+
             localsSooters.add(newScooter);
         }
         return localsSooters;
@@ -91,7 +93,9 @@ public class ScooterServiceImpl implements ScooterService {
                 newScooter.setCreated(s.getCreated());
                 newScooter.setUpdated(s.getUpdated());
 
-                newScooter.setReaded(timeSource.getCurrentTime());
+                if (!this.disableReadedTimeStamp)
+                    newScooter.setReaded(timeSource.getCurrentTime());
+
                 return newScooter;
             }
         throw new NoSuchElementException();
