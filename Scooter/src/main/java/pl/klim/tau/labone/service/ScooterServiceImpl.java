@@ -9,10 +9,38 @@ import java.util.NoSuchElementException;
 public class ScooterServiceImpl implements ScooterService {
     private ArrayList<Scooter> scooters = new ArrayList<Scooter>();
 
+    private boolean disableReadedTimeStamp = false;
+    private boolean disableCreatedTimeStamp = false;
+    private boolean disableUpdatedTimeStamp = false;
+
     private TimeSource timeSource;
 
     public ScooterServiceImpl(TimeSource timeSource) {
         this.timeSource = timeSource;
+    }
+
+    public boolean isDisableReadedTimeStamp() {
+        return disableReadedTimeStamp;
+    }
+
+    public void setDisableReadedTimeStamp(boolean disableReadedTimeStamp) {
+        this.disableReadedTimeStamp = disableReadedTimeStamp;
+    }
+
+    public boolean isDisableCreatedTimeStamp() {
+        return disableCreatedTimeStamp;
+    }
+
+    public void setDisableCreatedTimeStamp(boolean disableCreatedTimeStamp) {
+        this.disableCreatedTimeStamp = disableCreatedTimeStamp;
+    }
+
+    public boolean isDisableUpdatedTimeStamp() {
+        return disableUpdatedTimeStamp;
+    }
+
+    public void setDisableUpdatedTimeStamp(boolean disableUpdatedTimeStamp) {
+        this.disableUpdatedTimeStamp = disableUpdatedTimeStamp;
     }
 
     public void create(Scooter scooter) throws IllegalArgumentException {
@@ -99,13 +127,5 @@ public class ScooterServiceImpl implements ScooterService {
             throw new NoSuchElementException();
         }
 
-    }
-
-    public TimeSource getTimeSource() {
-        return timeSource;
-    }
-
-    public void setTimeSource(TimeSource timeSource) {
-        this.timeSource = timeSource;
     }
 }

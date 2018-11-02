@@ -11,4 +11,11 @@ public interface ScooterService {
     Scooter read(int id) throws NoSuchElementException;
     void update(Scooter scooter);
     void delete(Scooter scooter);
+
+    public boolean isDisableReadedTimeStamp();
+    public void setDisableReadedTimeStamp(boolean disableReadedTimeStamp);
+    public boolean isDisableCreatedTimeStamp();
+    public void setDisableCreatedTimeStamp(boolean disableCreatedTimeStamp);
+    public boolean isDisableUpdatedTimeStamp();
+    public void setDisableUpdatedTimeStamp(boolean disableUpdatedTimeStamp);
 }
