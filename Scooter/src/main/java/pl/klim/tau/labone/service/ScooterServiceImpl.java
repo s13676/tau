@@ -1,12 +1,23 @@
 package pl.klim.tau.labone.service;
 
 import pl.klim.tau.labone.domain.Scooter;
+import pl.klim.tau.labtwo.domain.TimeSource;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class ScooterServiceImpl implements ScooterService {
     private ArrayList<Scooter> scooters = new ArrayList<Scooter>();
+
+    private TimeSource timeSource;
+
+    public ScooterServiceImpl() {
+
+    }
+
+    public ScooterServiceImpl(TimeSource timeSource) {
+
+    }
 
     public void create(Scooter scooter) throws IllegalArgumentException {
         for (Scooter s : scooters)
@@ -80,5 +91,13 @@ public class ScooterServiceImpl implements ScooterService {
             throw new NoSuchElementException();
         }
 
+    }
+
+    public TimeSource getTimeSource() {
+        return timeSource;
+    }
+
+    public void setTimeSource(TimeSource timeSource) {
+        this.timeSource = timeSource;
     }
 }

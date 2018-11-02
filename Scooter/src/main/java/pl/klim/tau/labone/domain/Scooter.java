@@ -1,9 +1,14 @@
 package pl.klim.tau.labone.domain;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Date;
+
 
 public class Scooter {
     private int id;
+    private Date updated;
+    private Date created;
+    private Date readed;
+
     private String model;
     private String brand;
     private int productionYear;
@@ -47,6 +52,30 @@ public class Scooter {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public Date getReaded() {
+        return readed;
+    }
+
+    public void setReaded(Date readed) {
+        this.readed = readed;
     }
 
     public Scooter (int id, String model, String brand, int productionYear, String color) {

@@ -47,7 +47,7 @@ public class ScooterServiceImplTest {
     }
 
     @Test(expected = NoSuchElementException.class)
-    public void testReadObjecDoesNotExists() {
+    public void testReadObjectDoesNotExists() {
         Scooter scooterOne = new Scooter(1,"Yamaha", "Aerox", 2005, "Black");
         Scooter scooterTwo = new Scooter(2,"Yamaha", "Aerox", 2005, "Black");
         Scooter scooterThree = new Scooter(3,"Yamaha", "Aerox", 2005, "Black");
