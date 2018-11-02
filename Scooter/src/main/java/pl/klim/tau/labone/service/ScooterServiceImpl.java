@@ -112,7 +112,9 @@ public class ScooterServiceImpl implements ScooterService {
                 s.setReaded(scooter.getReaded());
                 s.setCreated(scooter.getCreated());
 
-                s.setUpdated(timeSource.getCurrentTime());
+                if (!this.disableUpdatedTimeStamp)
+                    s.setUpdated(timeSource.getCurrentTime());
+
                 return;
             }
         throw new NoSuchElementException();
