@@ -5,6 +5,8 @@ import pl.klim.tau.labtwo.domain.TimeSource;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ScooterServiceImpl implements ScooterService {
     private ArrayList<Scooter> scooters = new ArrayList<Scooter>();
@@ -134,5 +136,31 @@ public class ScooterServiceImpl implements ScooterService {
             throw new NoSuchElementException();
         }
 
+    }
+
+    public ArrayList<Scooter> findColorByRegex(String pattern) {
+        Pattern p = Pattern.compile(pattern);
+
+        ArrayList<Scooter> localsScooters = new ArrayList<Scooter>();
+        for (Scooter sc : this.scooters) {
+            Matcher m = p.matcher(sc.getColor());
+            if (m.matches()) {
+                Scooter newScooter = new Scooter(
+                        sc.getId(),
+                        sc.getModel(),
+                        sc.getBrand(),
+                        sc.getProductionYear(),
+                        sc.getColor()
+                );
+                newScooter.setCreated(sc.getCreated());
+                newScooter.setUpdated(sc.getUpdated());
+
+                if (!this.disableReadedTimeStamp)
+                    newScooter.setReaded(timeSource.getCurrentTime());
+
+                localsScooters.add(newScooter);
+            }
+        }
+        return localsScooters;
     }
 }

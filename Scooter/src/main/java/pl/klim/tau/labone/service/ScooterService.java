@@ -18,4 +18,5 @@ public interface ScooterService {
     public void setDisableCreatedTimeStamp(boolean disableCreatedTimeStamp);
     public boolean isDisableUpdatedTimeStamp();
     public void setDisableUpdatedTimeStamp(boolean disableUpdatedTimeStamp);
+    ArrayList<Scooter> findColorByRegex(String pattern);
 }
