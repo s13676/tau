@@ -43,7 +43,7 @@ public class ScooterCol {
         assertNotNull(scooterService);
     }
 
-    @When("^list is filtered by color regex (\\w+)$")
+    @When("^list is filtered by color regex (.+)$")
     public void list_filtered_by_color(String color) throws Throwable {
         result = scooterService.findColorByRegex(color);
     }
