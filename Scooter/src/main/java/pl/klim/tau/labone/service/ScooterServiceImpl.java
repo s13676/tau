@@ -4,6 +4,7 @@ import pl.klim.tau.labone.domain.Scooter;
 import pl.klim.tau.labtwo.domain.TimeSource;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -125,7 +126,7 @@ public class ScooterServiceImpl implements ScooterService {
     public void delete(Scooter scooter) {
         int index = -1;
 
-        for (int i=0;i<this.scooters.size();i++) {
+        for (int i = 0; i < this.scooters.size(); i++) {
             if (this.scooters.get(i).getId() == scooter.getId())
                 index = i;
         }
@@ -162,5 +163,20 @@ public class ScooterServiceImpl implements ScooterService {
             }
         }
         return localsScooters;
+    }
+
+    public void removeByList(List<Double> ids) {
+        ArrayList<Scooter> localsScooters = new ArrayList<Scooter>();
+
+        localsScooters.addAll(this.scooters);
+
+        for (double id : ids) {
+            for (Scooter sc : localsScooters) {
+
+                if (sc.getId() == id) {
+                    this.scooters.remove(sc);
+                }
+            }
+        }
     }
 }

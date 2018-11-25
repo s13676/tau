@@ -3,6 +3,7 @@ package pl.klim.tau.labone.service;
 import pl.klim.tau.labone.domain.Scooter;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public interface ScooterService {
@@ -19,4 +20,5 @@ public interface ScooterService {
     public boolean isDisableUpdatedTimeStamp();
     public void setDisableUpdatedTimeStamp(boolean disableUpdatedTimeStamp);
     ArrayList<Scooter> findColorByRegex(String pattern);
+    public void removeByList(List<Double> ids);
 }
