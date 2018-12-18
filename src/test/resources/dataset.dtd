@@ -1,0 +1,29 @@
+<!ELEMENT dataset (
+        SCOOTER*)>
+        <!--PERSON*,-->
+        <!--PERSON_CAR*-->
+
+
+        <!ELEMENT SCOOTER EMPTY>
+        <!ATTLIST SCOOTER
+                ID CDATA #REQUIRED
+                MODEL CDATA #IMPLIED
+                BRAND CDATA #IMPLIED
+                PRODUCTIONYEAR CDATA #IMPLIED
+                COLOR CDATA #IMPLIED
+                >
+
+        <!--<!ELEMENT PERSON EMPTY>-->
+        <!--<!ATTLIST PERSON-->
+        <!--ID CDATA #REQUIRED-->
+        <!--FIRSTNAME CDATA #IMPLIED-->
+        <!--PIN CDATA #REQUIRED-->
+        <!--REGISTRATIONDATE CDATA #IMPLIED-->
+        <!--&gt;-->
+
+        <!--<!ELEMENT PERSON_CAR EMPTY>-->
+        <!--<!ATTLIST PERSON_CAR-->
+        <!--CARS_ID CDATA #REQUIRED-->
+        <!--PERSON_ID CDATA #REQUIRED-->
+        <!--&gt;-->
+

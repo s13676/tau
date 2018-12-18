@@ -1,5 +1,5 @@
-# TAU
+### Example program for Spring+Hibernate+SpringDbUnitTest ###
 
-[![Build Status](https://travis-ci.org/s13676/tau.svg?branch=master)](https://travis-ci.org/s13676/tau)
+The following example was prepared by Jakub Neumann. It was
+updated for the more recent versions of libraries by Tadeusz Puźniakowski.
 
-Learning TDD using Java and Junit 🧡

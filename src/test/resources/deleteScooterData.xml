@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <SCOOTER MODEL="1a" BRAND="Fiat" PRODUCTIONYEAR="1982" COLOR="darkred"/>
+    <SCOOTER MODEL="2b" BRAND="ATX" PRODUCTIONYEAR="1992" COLOR="lightred"/>
+    <SCOOTER MODEL="3c" BRAND="Avenger" PRODUCTIONYEAR="1972" COLOR="red"/>
+    <SCOOTER MODEL="4d" BRAND="Centro" PRODUCTIONYEAR="1988" COLOR="yellow"/>
+    <SCOOTER MODEL="5e" BRAND="Ferro" PRODUCTIONYEAR="1983" COLOR="yellowred"/>
+    <SCOOTER MODEL="6f" BRAND="Kenos" PRODUCTIONYEAR="1985" COLOR="blue"/>
+    <SCOOTER MODEL="7g" BRAND="Suzuki" PRODUCTIONYEAR="1995" COLOR="black"/>
+    <SCOOTER MODEL="8h" BRAND="Vespa" PRODUCTIONYEAR="1972" COLOR="grey"/>
+    <SCOOTER MODEL="9ba" BRAND="Zipp" PRODUCTIONYEAR="1997" COLOR="silver"/>
+    <SCOOTER MODEL="10ej" BRAND="Zumico" PRODUCTIONYEAR="1982" COLOR="darksilver"/>
+
+    <!--<CAR ID="3" MAKE="Fiat" MODEL="126p" SOLD="false"/>-->
+    <!--<CAR ID="4" MAKE="Ford" MODEL="Mondeo" SOLD="true"/>-->
+    <!--<PERSON ID="3" FIRSTNAME="Lolek" PIN="4321" REGISTRATIONDATE="2015-05-20"/>-->
+    <!--<PERSON ID="4" FIRSTNAME="Bolek" PIN="1234" REGISTRATIONDATE="2015-05-20"/>-->
+    <!--<PERSON_CAR CARS_ID="4" PERSON_ID="3"/>-->
+</dataset>
